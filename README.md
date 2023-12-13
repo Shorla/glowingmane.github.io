@@ -3,7 +3,8 @@
 #### Video Demo:  <https://youtu.be/_UiyQz2gPb0>
 ## Description:
 Welcome to GlowingMane.
-![home hero](https://github.com/Shorla/glowingmane.github.io/assets/77856859/135c4fd5-bc53-44d2-a9e6-e9b055aaed12)
+<img width="1452" alt="Screenshot 2023-12-13 at 14 50 08" src="https://github.com/Shorla/glowingmane.github.io/assets/77856859/ee75a5d9-48a9-410c-b35e-e56fa04a2abc">
+
 
 
 
