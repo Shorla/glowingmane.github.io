@@ -17,13 +17,63 @@ Navigating through the eight pages of the application begins with the homepage, 
 #### Features
 ##### Users can:
 
+* read blogs about hair care.
 * Sign in/Sign up on the app
 * calculate their average monthly hair growth
 * compare their current hair growth to the estimated hair growth generated.
-* read blogs about hair care.
-
+NOTE: The calculator page can only be accessed by registering and logging in to the website.
 If you don't want to register an account,
 You can login with Username - Olushola Password - 12345
 
+#### Running the application locally
+This application can be used through:
+* Github codespace
+* on your local machine
+
+##### Github codespaces
+
+STEPS:
+* Fork the repository
+* On the forked repository, click on the code button in green.
+* click on codespaces and select "open in a codespace".
+* After, the codespace is opened, on the terminal, install the following:
+
+```
+pip install flask
+pip install flask-session
+pip install cs50
+
+```
+Note: If you are getting "pip not found" error, use pip3 for the installations.
+
+* use ```flask run``` to start the application.
+* copy and paste the generated url to your browser!
+
+##### Local Machine
+
+STEPS:
+* Fork the repository
+* On the forked repository, click on the code button in green.
+* click on Local and copy the generated link.
+* On your terminal, type "git clone" followed by the generated link.
+* After succcessful cloning, open the folder on the IDE of your choice.
+* After, the folder is opened, on the terminal in your IDE, install the following:
+
+```
+pip install flask
+pip install flask-session
+pip install cs50
+
+```
+Note: If you are getting "pip not found" error, use pip3 for the installations.
+
+* use ```flask run``` to start the application.
+* copy and paste the generated url to your browser!
+
+
 #### Motivation
 Since childhood, I had to cut my hair because my mother wasn't familiar with caring for its unique texture. Fast forward to adulthood, my attempts to grow it out were met with challenges and damaged hair. Three years ago, I decided to start anew with a blend of research and a solid regimen, turning my hair care journey into a success. This personal experience fueled my passion for hair care and a desire to assist others. Recognizing gaps in the industry, particularly in accountability and record-keeping, led to the creation of the GlowingMane app.
+
+#### Contributing
+
+This is an Open source project, hence, contributions are appreciated. This is only the first version, so, several improvements and adjustments will take place over the years. The goal is to make everyone have access to good hair care through accurate measurements, record keeping and good regimen.
