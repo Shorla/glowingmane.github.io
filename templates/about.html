@@ -1,0 +1,138 @@
+{% extends "layout.html" %}
+
+{% block hero %}
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="about-img">
+                </div>
+                <div class="carousel-caption d-md-block my-5">
+                    <h1 class="name" style="font-size: 53px; line-height: 2;">About GMane</h1>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
+{% block main %}
+    <!--gallery starts-->
+    <section>
+        <div class="container my-5">
+            <div class="row g-0">
+                <div class="col-sm-2  col-md-8 col-lg my-5">
+                    <img src="/static/img/LOGO.png" class="abt-img">
+                </div>
+                <div class="col-sm-2 col-lg col-md-8 my-auto justify-content-center">
+                    <h1 class="mx-5 fw-semibold" style="font-size: 56px;">Welcome to Glowing Mane</h1>
+                    <p class="mx-5 fs-4 fw-lighter">Embrace the power of personalized hair growth insights with Glowing Mane, your comprehensive hair care companion. Our innovative hair growth calculator analyzes your unique hair measurements to predict future growth, empowering you to set realistic goals and track your progress along the way. Beyond growth prediction, Glowing Mane provides expert hair care tips and informative blogs that delve into the science behind healthy hair. Learn about essential nutrients, styling techniques, and scalp care practices that can transform your hair from dull to dazzling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--gallery ends-->
+
+    <!--testimonial starts-->
+    <section>
+        <div class="container my-5 testimonial-title">
+            <h1 style="font-size:56px ;">Our Mission</h1>
+            <p>At GlowingMane, we believe that every hair type, whether it's natural, relaxed, colored, or styled in locks, deserves the opportunity to shine with vitality and radiance. Our mission is to empower you on your journey to healthy, beautiful hair. We offer a unique blend of science-backed insights, expert guidance, and a supportive community to help you achieve your hair care goals.</p>
+            <p>Join us in discovering the secrets to unlocking your hair's natural glow. No more guesswork, just informed, personalized advice. Your path to radiant, healthy hair begins here at GlowingMane.
+            </p>
+        </div>
+    </section>
+    <!--testimonial ends-->
+
+    <!--Blog starts-->
+    <section>
+        <div class="container">
+            <div class="testimonial-title">
+                <h1 style="font-size: 56px;">Mane Team</h1>
+                <p>Allow me to introduce the talented individuals who make our mission of promoting healthy and beautiful hair a reality.</p>
+            </div>
+            <div class="row my-5 justify-content-center">
+                <div class="col-md-6 col-lg my-2">
+                    <div class="about-card">
+                        <img src="https://pbs.twimg.com/profile_images/1632370852590223362/pixGQ6g2_400x400.jpg" alt="a person's image" class="align-self-center mx-auto" style="height: 270px;">
+                        <div class="card-body text-center my-3 mx-auto">
+                            <p class="testimonial-item-info-author">Olushola Ogunkelu</p>
+                            <p class="testimonial-item-info-text fs-4">Founder and Developer</p>
+                            <p class="fw-light">A software engineer who is also passionate about hair care and helping humanity.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg my-2">
+                    <div class="about-card ">
+                        <img src="https://pbs.twimg.com/profile_images/1655973516779323401/BN28rN28_400x400.jpg" alt="a person's image" class="align-self-center mx-auto">
+                        <div class="card-body text-center my-3 mx-auto">
+                            <p class="testimonial-item-info-author">Michael Aninyem</p>
+                            <p class="testimonial-item-info-text fs-4">Brand Identity and UI/UX designer</p>
+                            <p class="fw-light">He is a talented designer who is responsible for the layout of this website.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg my-2">
+                    <div class="about-card ">
+                        <img src="/static/img/user.png" alt="a person's image" class="align-self-center mx-auto">
+                        <div class="card-body text-center my-3 mx-auto">
+                            <p class="testimonial-item-info-author">This could be you</p>
+                            <p class="testimonial-item-info-text fs-4">???</p>
+                            <p class="fw-light">Are you passionate about open source and helping people? This might be just for you!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Blog ends-->
+    <!--metrics starts-->
+    <section class="metrics my-5">
+        <div class="container my-5">
+            <h1 class="testimonial-title">We Hope to Achieve:</h1>
+            <div class="row mx-5">
+                <div class="col my-5">
+                    <p class="fs-1 fw-bold">12,000</p>
+                    <p>Active users</p>
+                </div>
+                <div class="col my-5">
+                    <p class="fs-1 fw-bold">80%</p>
+                    <p>Blog post reach</p>
+                </div>
+                <div class="col my-5">
+                    <p class="fs-1 fw-bold">$5000</p>
+                    <p>In funding</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--metrics ends-->
+    <!--contact starts-->
+    <section>
+        <div class="container">
+            <div class="row>">
+                <div class="col">
+                    <div class="col-sm-2 col-lg-12 col-md my-5 justify-content-center">
+                        <div class="testimonial-title">
+                            <h1 style="font-size: 2em; white-space: nowrap;">Get in Touch</h1>
+                            <p class="fs-5" style="white-space: nowrap;">For enquires or Donation</p>
+                        </div>
+                        <form class="justify-content-center abt-form">
+                            <div class="mb-3 input">
+                                <label class="form-label">Name</label>
+                                <input type="text" class="form-control" Placeholder="first and last name" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3 input">
+                                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" Placeholder="xyz@gmail.com" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3 input">
+                                <label class="form-label">Message</label>
+                                <input type="text" class="form-control" aria-describedby="emailHelp">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--contact ends-->
+{% endblock %}
