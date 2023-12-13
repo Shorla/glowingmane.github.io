@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+
+{% block hero %}
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="carousel-img">
+                </div>
+                <div class="carousel-caption d-flex" style="top: 110px;">
+                    <div class="my-5">
+                        <h1 class="calc-name text-left" style="font-size: 53px; line-height:2;">Calculate Your Growth</h1>
+                        <div class="carousel-button">
+                            <a href="#calculator" style="text-decoration: none;"><button type="button" class="btn btn-light">Get started</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main %}
+<section id="calculator">
+    <div class="container my-5 testimonial-title">
+        <h1 style="font-size:56px ;">Tips for hair measurement</h1>
+        <h4 style="font-size:31px;">Tools needed</h4>
+        <ol class="list-group list-group-horizontal justify-content-center">
+            <li class="list-group-item">Flexible measuring tape or Ruler</li>
+            <li class="list-group-item">A mirror</li>
+            <li class="list-group-item">A pen or marker</li>
+        </ol>
+        <p style="font-size:22px;" class="my-5">To measure hair growth, you can follow these steps:.</p>
+        <ul class="list-group">
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              Choose a Starting Point: Decide where you want to measure your hair growth. Common areas include the scalp or specific sections of hair.
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              Part Your Hair: Use a comb or your fingers to part your hair, making sure you can clearly see the area you want to measure.
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              Measure Length: Carefully place the measuring tape or ruler at the base of the hair shaft (near the scalp) and gently extend it along the length of the hair. Ensure you follow the natural curve of the hair, especially if it's curly.
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              Record Measurements: Use the pen or marker to mark the length of the hair on the tape or ruler. You can also take a photo for reference.
+            </li>
+            <li class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+              Monitor Progress: Repeat the measurement periodically (e.g., every month) to track your hair growth progress. Input the value in the box below to store your values for the first four months.
+            </li>
+          </ul>
+    </div>
+</section>
+<!--gallery starts-->
+    <section id="form">
+        <div class="container my-5">
+            <div class="row g-0">
+                <div class="col-sm-2 col-lg col-md-8 my-5">
+                    <img src="/static/img/calc.png" class="calc ms-5">
+                </div>
+                <div class="col-sm-2 col-lg col-md-8 my-5 justify-content-center form p-5">
+                    <div class="testimonial-title">
+                        <h1 id="form-h1">Let’s take your data</h1>
+                        <p class="form-text-1">Please input your last four(4) months data</p>
+                    </div>
+                    <form action="/calculator" method="post" class="form">
+                        <div class="mb-3 mx-5">
+                            <label class="form-label ">First month</label>
+                            <input class="form-control mx-auto" id="firstmonth" name="firstmonth" placeholder="dd/mm/yyyy" type="date">
+                        </div>
+                        <div class="mb-3 mx-5">
+                            <label class="form-label ">Measurement(inches)</label>
+                            <input class="form-control mx-auto" id="f-measurement" min=0 step="any" name="f-measurement" placeholder="inches" type="number">
+                        </div>
+                        <div class="mb-3 mx-5">
+                            <label class="form-label ">Second month</label>
+                            <input class="form-control mx-auto" id="secondmonth" name="secondmonth" placeholder="dd/mm/yyyy" type="date">
+                        </div>
+                        <div class="mb-3 mx-5">
+                            <label class="form-label ">Measurement(inches)</label>
+                            <input class="form-control mx-auto" id="s-measurement"  min=0 step="any" name="s-measurement" placeholder="inches" type="number">
+                        </div>
+                        <div class="mb-3 mx-5">
+                            <label class="form-label ">Third month</label>
+                            <input class="form-control mx-auto" id="thirdmonth" name="thirdmonth" placeholder="dd/mm/yyyy" type="date">
+                        </div>
+                        <div class="mb-3 mx-5">
+                            <label class="form-label ">Measurement(inches)</label>
+                            <input class="form-control mx-auto" id="t-measurement" min=0 step="any" name="t-measurement" placeholder="inches" type="number">
+                        </div>
+                        <div class="mb-3 mx-5">
+                            <label class="form-label ">Fourth month</label>
+                            <input class="form-control mx-auto" id="fourthmonth" name="fourthmonth" placeholder="dd/mm/yyyy" type="date">
+                        </div>
+                        <div class="mb-3 mx-5">
+                            <label class="form-label ">Measurement(inches)</label>
+                            <input class="form-control mx-auto" id="fo-measurement" min=0 step="any" name="fo-measurement" placeholder="inches" type="number">
+                        </div>
+                        <button type="submit" class="btn btn-primary check mx-5">Calculate</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--gallery ends-->
+
+<section>
+    <div class="container my-5 testimonial-title">
+        <h1 style="font-size:46px ;">Your monthly hair growth rate was {{ average_growth }} inches on {{ fourthmonth}}</h1>
+    </div>
+</section>
+
+<div class="container">
+    <div class="col form  my-5">
+            <div class="testimonial-title p-1">
+                <h1 style="font-size: 2em; white-space: nowrap;" class="my-2">Check your length accuracy</h1>
+            </div>
+            <form action="/calculator_main" method="post" class="justify-content-center abt-form">
+            <div class="col-lg-12 col-md-10   justify-content-center">
+                <div class="mb-3 mx-5">
+                    <label class="form-label ">Date</label>
+                    <input class="form-control mx-auto" id="d-month" name="d-month" placeholder="dd/mm/yyyy" type="date">
+                </div>
+                <div class="mb-3 mx-5">
+                    <label class="form-label ">Measurement(inches)</label>
+                    <input class="form-control mx-auto" id="n-measurement"  min=0 step="any" name="n-measurement" placeholder="inches" type="number">
+                </div>
+                <button class="btn btn-primary w-100 mx-auto mb-3" type="submit" >Check</button>
+            </form>
+            <h4>Your estimated hair growth is {{ sum }} inches and your current hair growth is {{ length }} inches </h4>
+        </div>
+    </div>
+</div>
+
+<section>
+    <div class="container my-5 testimonial-title">
+        {% if request.method == 'POST' and request.endpoint == 'calculator_main' and sum > length %}
+            <h1 style="font-size:46px ;">Here are some suggestions:</h1>
+            <p>Be careful about taking down protective styles. Be patient as possible. A movie during takedown might help</p>
+            <p>Always detangle gently. If possisble, stay of comb unless while on deep-conditioner.</p>
+            <p>Always keep your hair in silk caps or pillows. Always stay on protective styles.</p>
+        {% endif %}
+        {% if (request.method == 'POST' and request.endpoint == 'calculator_main' and length > sum) or(request.method == 'POST' and request.endpoint == 'calculator_main' and sum == length) %}
+            <h1 style="font-size:46px ;">YOU ARE DOING GREAT!!!</h1>
+            <p>Be sure to check out the blogs for new updates.</p>
+            <p>We can't wait to have you next time.</p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
