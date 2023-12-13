@@ -1,0 +1,173 @@
+{% extends "layout.html" %}
+
+{% block hero %}
+<div id="carouselExampleCaptions" class="carousel slide">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/static/img/hero.png" class="d-block w-100" alt="woman with Afro hair">
+            <div class="carousel-caption d-md-block">
+                <h1 class="name ">Glowing Mane</h1>
+                <p class="text  text-left">Unlock the Secrets of Your Hair's Radiance.</p>
+                <a href="/about" style="text-decoration: none;"><button type="button" class="btn btn-light carousel-button d-none d-md-block">Learn More</button></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main %}
+
+<!--gallery starts-->
+    <section>
+        <div class="container my-5">
+            <div class="row g-0">
+                <div class="col-sm-2 col-lg col-md-3 my-5">
+                    <img src="/static/img/calc.png" class="calc ms-5">
+                </div>
+                <div class="col-sm-2 col-lg col-md-3 my-auto justify-content-center">
+                    <h1 class="mx-5">Introduction</h1>
+                    <p class="mx-5">Ready to unveil the secrets of your hair's radiance? Dive in and calculate your journey to vibrant, healthy hair with GlowingMane, or learn more about our personalized approach to hair care. Ready to unveil the secrets of your hair's radiance? Dive in and calculate your journey to vibrant, healthy hair with GlowingMane, or learn more about our personalized approach to hair care.
+                    </p>
+                    <a href="/calculator" style="text-decoration: none;"><button type="button" class="btn btn-dark gallery-bb mx-5">Calculate My Hair Growth</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--gallery ends-->
+
+
+<!--features starts-->
+    <section class="feature-body">
+        <div class="container my-5">
+            <div class="row my-5 mx-5 justify-content-center">
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="81" height="81" viewBox="0 0 81 81" fill="none" class="mx-5">
+                        <g clip-path="url(#clip0_56_348)">
+                            <path d="M63.3335 21.8318C57.0535 13.4585 49.0668 8.83179 40.6668 8.83179C32.2668 8.83179 24.2801 13.4585 18.0001 21.8318C13.2768 28.1285 7.58013 36.6318 6.79346 45.5785C6.39013 50.1918 7.28346 54.9151 10.1901 59.4118C13.0601 63.8518 17.7501 67.8484 24.5735 71.3451C28.7701 73.4951 33.3401 70.6118 33.9368 66.4018C32.5182 65.4468 31.2179 64.3268 30.0635 63.0651C26.6868 59.3818 23.9968 53.9885 23.9968 47.1651C23.9968 35.7385 29.8968 28.0485 36.9968 26.0185C37.9368 25.7518 38.9968 26.4585 39.1101 27.4318C39.5806 31.4618 41.5049 35.1817 44.5223 37.8941C47.5398 40.6066 51.443 42.1251 55.5001 42.1651C57.7468 42.1851 57.3335 45.6985 57.3335 47.1651C57.3335 53.9885 54.6468 59.3818 51.2668 63.0651C50.0601 64.3851 48.7335 65.5118 47.3868 66.4085C47.9201 70.6351 52.4468 73.5418 56.6468 71.5118C63.8635 68.0318 68.7901 64.0351 71.7735 59.5618C74.7968 55.0218 75.6501 50.2385 75.1301 45.5818C74.1301 36.6151 68.0068 28.0585 63.3335 21.8318Z" fill="#E4A951" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_56_348">
+                                <rect width="80" height="80" fill="white" transform="translate(0.666748 0.498413)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <p class="text-white mt-3">Our advanced algorithm provides accurate estimates of when you'll achieve your hair length and health goals, regardless of your hair type - whether natural, relaxed, colored, or styled in locks.</p>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-2 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="81" viewBox="0 0 80 81" fill="none" class="mx-5">
+                        <g clip-path="url(#clip0_56_354)">
+                            <path d="M73.3332 30.4984C70.7467 30.5632 68.1904 29.9299 65.9332 28.665C64.1304 27.6304 62.0778 27.1115 59.9999 27.165V23.8317C62.5865 23.7669 65.1427 24.4002 67.3999 25.665C69.2027 26.6997 71.2553 27.2186 73.3332 27.165M73.3332 20.4984C71.2553 20.5519 69.2027 20.033 67.3999 18.9984C65.1427 17.7335 62.5865 17.1002 59.9999 17.165V20.4984C62.0778 20.4448 64.1304 20.9637 65.9332 21.9984C68.1904 23.2632 70.7467 23.8965 73.3332 23.8317M73.3332 33.8317C71.2553 33.8853 69.2027 33.3664 67.3999 32.3317C65.1427 31.0669 62.5865 30.4336 59.9999 30.4984V33.8317C62.0778 33.7781 64.1304 34.2971 65.9332 35.3317C68.1904 36.5965 70.7467 37.2298 73.3332 37.165M33.3332 42.9317C41.2044 41.4094 48.9924 39.4846 56.6666 37.165V13.8317C56.6666 13.8317 34.9999 7.16504 24.9999 7.16504C20.5482 7.17757 16.2532 8.80943 12.9163 11.7561C9.57944 14.7028 7.42872 18.7629 6.8655 23.1788C6.30229 27.5948 7.36507 32.0647 9.85551 35.7546C12.3459 39.4445 16.0939 42.1022 20.3999 43.2317L23.3332 63.8317H26.6666C26.7999 65.4205 27.3111 66.9544 28.1577 68.3054C29.0043 69.6565 30.1616 70.7855 31.5332 71.5984C33.0797 72.5178 34.364 73.8192 35.2628 75.3776C36.1617 76.9361 36.6451 78.6994 36.6666 80.4984H39.9999C39.9848 78.2021 39.3941 75.9462 38.2818 73.9372C37.1696 71.9282 35.5713 70.2301 33.6332 68.9984C31.2999 67.165 29.9999 65.9317 29.9999 63.8317H33.3332M24.9999 33.8317C23.3517 33.8317 21.7406 33.343 20.3702 32.4273C18.9998 31.5116 17.9316 30.2101 17.3009 28.6874C16.6702 27.1647 16.5052 25.4891 16.8267 23.8726C17.1482 22.2561 17.9419 20.7713 19.1074 19.6058C20.2728 18.4404 21.7577 17.6467 23.3742 17.3252C24.9907 17.0036 26.6662 17.1686 28.1889 17.7994C29.7117 18.4301 31.0131 19.4982 31.9288 20.8686C32.8445 22.239 33.3332 23.8502 33.3332 25.4984C33.3332 27.7085 32.4553 29.8281 30.8925 31.3909C29.3297 32.9537 27.21 33.8317 24.9999 33.8317Z" fill="#E4A951" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_56_354">
+                                <rect width="80" height="80" fill="white" transform="translate(-0.00012207 0.498413)" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <p class="text-white mt-3"> We believe in a holistic approach to hair health. Explore our comprehensive guides on nutrition, care routines, and lifestyle changes that can positively impact your hair's well-being, no matter your hair type.</p>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="81" height="81" viewBox="0 0 81 81" fill="none" class="mx-5">
+                        <path d="M13.9843 32.0804C13.3726 37.9734 12.7625 43.8938 12.1842 49.507L20.8658 41.8088L31.2281 4.07446C19.2137 5.01681 15.2843 24.3929 13.9843 32.0804ZM12.1842 49.507L12.1839 49.5071L12.1842 49.5074V49.5068V49.507ZM8.59247 4.80837L5.90122 5.62556C7.33778 10.3595 9.83747 14.8262 14.1348 17.9765C14.4361 17.0491 14.7702 16.1326 15.1367 15.229C11.7867 12.5524 9.83888 8.91571 8.59263 4.80868L8.59247 4.80837ZM7.47888 16.6477L5.32325 18.4541C7.65763 21.344 9.21825 23.9381 12.2373 25.6577C12.4201 24.6817 12.6204 23.709 12.8381 22.7401C10.574 21.1352 8.99716 18.4771 7.47888 16.6477ZM52.8247 17.3021L42.1439 26.7976C38.079 24.7248 33.5606 21.8848 29.8609 20.576C29.5331 21.4584 29.275 22.3596 29.0265 23.2662C32.4661 24.7137 36.0703 26.6291 39.212 28.3757C43.5158 30.6862 47.7472 33.0046 51.2729 35.7476C52.4082 36.5138 53.5401 37.2998 54.6554 38.107C60.2231 42.1357 65.3806 46.6398 68.5523 51.0121C71.7239 55.3845 72.859 59.3485 71.0825 62.9335L73.6023 64.1823C75.9678 59.4088 74.3065 54.1552 70.8289 49.3609C67.3511 44.5665 62.0061 39.9545 56.3043 35.8284C54.294 34.3737 52.2395 32.9837 50.2065 31.6734C54.0718 25.9285 54.892 20.5818 52.8247 17.3021ZM27.7654 27.8634L27.0181 30.5884C32.8618 33.1263 39.0592 36.2588 44.2818 39.7826C44.9363 40.2308 45.5828 40.6907 46.2209 41.162C49.7684 43.7863 52.9362 46.7204 54.9753 49.7038C57.0143 52.6873 57.9123 55.617 57.2512 58.5231C56.3945 62.2896 56.8984 65.1563 58.3786 67.1052C59.8587 69.0543 62.1115 69.9212 64.27 70.2785C66.0648 70.5755 70.5754 71.052 72.9056 76.3124L75.4773 75.1734C72.5973 68.6718 66.3084 67.7652 64.7297 67.5038C62.9851 67.2151 61.5006 66.5659 60.6182 65.4041C59.7361 64.2426 59.2526 62.4041 59.9936 59.147C60.8701 55.2932 59.6122 51.5038 57.2973 48.117C54.9826 44.7299 51.5989 41.642 47.8937 38.9009C47.1276 38.3351 46.3504 37.7846 45.5625 37.2496C45.9715 36.8389 46.3722 36.4199 46.7642 35.9929C44.0189 34.1884 40.9043 32.489 37.6898 30.7573L36.4706 31.8413C32.9797 30.0184 29.8698 28.6549 27.7654 27.8632V27.8634ZM31.9928 35.8223C25.2512 41.8268 18.4995 47.8184 11.7443 53.8073C11.7429 53.8196 11.7417 53.8207 11.7404 53.8332L10.8634 54.6098L7.767 51.2059L7.75966 51.2177C6.5945 49.927 4.94481 49.1729 3.14575 48.9068V51.8646C4.4306 52.1323 5.38419 52.7485 5.9445 53.6421C6.6731 54.8037 6.69669 56.3702 5.92278 58.1448C5.66513 58.7354 5.31466 59.336 4.88466 59.927L3.14575 61.4734V65.506C3.4945 65.2771 3.83122 65.0373 4.15513 64.7904L36.167 44.654C38.0029 43.4967 39.6889 42.2993 41.2345 41.079C38.3025 39.0057 35.012 37.7034 31.9928 35.8224V35.8223ZM43.3414 47.6354L41.0504 49.2666C42.197 50.8768 43.7414 52.3257 44.5395 53.7849C45.3376 55.2443 45.6145 56.4309 44.2298 58.4788C43.1086 60.1371 41.4348 62.9577 41.7204 66.0873C41.8636 67.652 42.6042 69.2793 44.0907 70.519C45.5776 71.7587 47.7267 72.6402 50.7392 73.1381L51.1978 70.3631C48.5062 69.9184 46.8459 69.1545 45.892 68.359C44.9381 67.5635 44.6068 66.7663 44.5215 65.8315C44.3507 63.9618 45.594 61.4824 46.5598 60.0541C48.4365 57.2784 48.1203 54.4713 47.0067 52.4354C45.8934 50.3996 44.2078 48.8523 43.3414 47.6354ZM36.8362 52.3637L34.0259 52.4754C33.9284 56.8074 34.4686 64.3602 31.0783 67.6793L32.5412 70.0813C36.8297 66.7443 36.9734 56.7851 36.8362 52.3637ZM19.0131 59.2613C16.4381 59.8745 13.0903 62.5993 10.6815 64.1137L10.2054 68.7529C10.1117 69.2329 10.0351 69.7241 9.98231 70.2238C9.69497 72.9523 10.0722 75.5379 10.9986 77.6857H14.2831C14.1852 77.5311 14.0927 77.3731 14.0058 77.2121C13.1529 75.6254 12.6761 73.423 12.8417 71.0256L14.2401 65.9352C14.5787 65.2887 14.9623 64.7081 15.3781 64.2156C18.2239 61.2729 21.0634 61.6226 22.9218 64.9757C23.8328 66.672 24.3178 69.0634 24.0448 71.6531C23.7889 74.0813 22.9201 76.2101 21.7839 77.6857H25.2401C26.1279 76.0232 26.7261 74.0731 26.9489 71.9579C27.2776 68.8346 26.7364 65.8985 25.4968 63.5923C23.6937 61.1576 21.6353 59.2479 19.0131 59.2613Z" fill="#E4A951" />
+                    </svg>
+                    <p class="text-white mt-3">GlowingMane offers its hair growth prediction tool and a wealth of hair care knowledge for free. We're committed to helping you achieve your hair goals, regardless of your hair type, without the cost.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--features ends-->
+
+<!--testimonial starts-->
+    <section>
+        <div class="container my-5">
+            <h1 class="testimonial-title">Testimonial section</h1>
+            <div class="row my-5 justify-content-center">
+                <div class="col-md-3 col-lg-3 col-xl-3 my-5 testiomanial-item-wrapper">
+                    <div class="card testimonial-item-content">
+                        <div class="testimonial-item-quote">
+                            <p>“I have always been an advocate for consistent routine. The first step to having a healthy hair is a simple and consistent routine. That's what Glowing Mane stands for!”</p>
+                            <div class="testimonial-item-author">
+                                <img src="https://www.shutterstock.com/image-vector/happy-african-american-girl-cartoon-260nw-522003124.jpg" alt="a person's image">
+                                <div class="testimonial-item-info mx-4">
+                                    <p class="testimonial-item-info-author">Olushola O.</p>
+                                    <p class="testimonial-item-info-text">CEO GlowingMane</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3 my-5 testiomanial-item-wrapper">
+                    <div class="card testimonial-item-content">
+                        <div class="testimonial-item-quote">
+                            <p>“This hair calculator is a must use product. I have always struggled to keep my length measurement in mind. i would always wonder if I've retained length or not. Now, I have the right tool for just that.”</p>
+                            <div class="testimonial-item-author">
+                                <img src="https://i.pinimg.com/736x/62/9c/4c/629c4c1d501fadb4dd8e3cb5c4912b0f.jpg" alt="a person's image">
+                                <div class="testimonial-item-info mx-3">
+                                    <p class="testimonial-item-info-author">Rebecca Otagba</p>
+                                    <p class="testimonial-item-info-text">Healthy hair enthusiast</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3 my-5 testiomanial-item-wrapper">
+                    <div class="card testimonial-item-content">
+                        <div class="testimonial-item-quote">
+                            <p>“I have always enjoyed my banters with Olushola about relaxed and <i>unrelaxed</i> hair. When she shared her vision with me, I was especially exicted and can't wait to be a part of it”</p>
+                            <div class="testimonial-item-author">
+                                <img src="https://i.pinimg.com/550x/8d/52/c5/8d52c5c35382908832ffedb21c1e63b0.jpg" alt="a person's image">
+                                <div class="testimonial-item-info mx-3">
+                                    <p class="testimonial-item-info-author">Faith West</p>
+                                    <p class="testimonial-item-info-text">Healthy relaxed hair babe</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--testimonial ends-->
+
+<!--Blog starts-->
+    <section>
+        <div class="container">
+            <div class="testimonial-title">
+                <h1>Recent Blog</h1>
+                <p>Join us in discovering the secrets to unlocking your hair's natural glow. No more guesswork, just informed, personalized advice.</p>
+            </div>
+            <div class="row my-5 justify-content-center mx-5">
+                <div class=" col-md-3 col-lg-3 col-xl-3 my-2">
+                    <div class="card">
+                        <img src="https://images.ctfassets.net/1ny4yoiyrqia/1g0HWovEiJCScXhtTmeDyF/20a4a50ea7435aaef3368d74f462b7e2/african-hair.jpg" class="card-img-top" style="height:190px;" alt="...">
+                        <div class="card-body">
+                            <h5>Healthy hair? Where should I start from?</h5>
+                            <p>This is our very first hair blog. It introduces you to Glowing Mane and helps you get started with a simple routine.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3 my-2">
+                    <div class="card">
+                        <img src="https://static-bebeautiful-in.unileverservices.com/1200/900/how%20to%20blow%20dry%20hair_MobileHomeFeature.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5>Blow drying! Heat can be Beneficial!</h5>
+                            <p>I had my first ever blow dry and it was worth it. In this blog, I will discuss the benefits and what to avoid when using heat on your hair.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3 my-2 mx-3">
+                    <div class="card">
+                        <img src="https://cdn.aarp.net/content/dam/aarp/entertainment/beauty-and-style/2020/04/1140-hair-products-on-table.jpg" class="card-img-top" style="height:190px;" alt="...">
+                        <div class="card-body">
+                            <h5>Does products grow hair?</h5>
+                            <p>A guide to choosing the right products for your hair care routine. You will learn what to look out for and the myth behind products growing hair.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!--Blog ends-->
+{% endblock %}
