@@ -2,7 +2,8 @@
 
 #### Video Demo:  <https://youtu.be/_UiyQz2gPb0>
 ## Description:
-Welcome to GlowingMane.![home hero](https://github.com/Shorla/glowingmane.github.io/assets/77856859/135c4fd5-bc53-44d2-a9e6-e9b055aaed12)
+Welcome to GlowingMane.
+![home hero](https://github.com/Shorla/glowingmane.github.io/assets/77856859/135c4fd5-bc53-44d2-a9e6-e9b055aaed12)
 
 
 
