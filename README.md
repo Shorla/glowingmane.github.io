@@ -15,7 +15,7 @@ The Glowing Mane app is crafted using HTML, CSS, Javascript, and Bootstrap for t
 Navigating through the eight pages of the application begins with the homepage, offering basic information about Glowing Mane. The About page delves deeper into our team, mission, and available support. Our blog page features a wealth of articles on hair care. The signup page allows users to register, leading to the login page, granting access to both the calculator and logout page. The calculator, the centerpiece of our website, consists of two forms. The first calculates the average monthly hair growth based on the last four months' input, while the second compares the latest input to the expected length, providing personalized commendations.
 
 #### Features
-##### Users can
+##### Users can:
 
 * Sign in/Sign up on the app
 * calculate their average monthly hair growth
