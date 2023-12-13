@@ -1,0 +1,371 @@
+body {
+    background: #FFF3E2;
+}
+
+.navbar-brand-text {
+    color: #F1C789;
+    font-family: La Gagliane;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 10px;
+}
+
+.navbar-brand {
+    display: flex;
+    padding: 15px 0px;
+    align-items: center;
+    gap: 8px;
+}
+
+.carousel-caption {
+    top: 30%;
+    right: 60%
+}
+
+.name {
+    color: #E49C48;
+    font-family: La Gagliane;
+    margin-right: 25%;
+    font-size: 4.5em;
+    line-height: 2;
+    text-align: left;
+
+}
+
+.calc-name {
+    color: #E49C48;
+    font-family: La Gagliane;
+    margin-right: 30%;
+    text-align: left;
+
+}
+
+.text {
+    color: #FFF3E2;
+    margin-right: 15%;
+    margin-top: 5%;
+    font-size: 2.5em;
+    text-align: left;
+}
+
+.carousel-button {
+    display: flex;
+    margin-top: 10%;
+    margin-left: 2%;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.navbar-nav {
+    text-align: right;
+    margin-right: 20px;
+}
+
+.nav-link:hover {
+    font-weight: 600;
+    border-bottom: 1px solid #fff;
+}
+
+@media only screen and (max-width: 1000px) {
+    .nav-link:hover {
+        border-bottom: none !important;
+    }
+}
+
+.calc {
+    height: 528px;
+
+}
+
+.feature-body {
+    display: flex;
+    min-height: 407px;
+    justify-content: center;
+    align-items: center;
+    background: url("/static/img/Features.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.testimonial-title {
+    text-align: center;
+}
+
+.testiomanial-item-wrapper {
+    border-radius: 18px;
+    background: #F1C789;
+    box-shadow: 0px 8px 22px 0px rgba(228, 169, 81, 0.40);
+    margin: 30px;
+}
+
+.testimonial-item-content {
+    padding: 24px;
+    background: #FFEDD1;
+
+}
+
+.testimonial-item-quote {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 52px;
+}
+
+.testimonial-item-quote-text {
+    color: #000;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.testimonial-item-author {
+    display: flex;
+    padding: 24px 16px;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    background: #F5F7FA;
+}
+
+.testimonial-item-author img {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background: lightgray 50% / cover no-repeat;
+}
+
+.testimonial-item-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    flex: 1 0 0;
+}
+
+.testimonial-item-info-author {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+
+}
+
+.testimonial-item-info-text {
+    color: #000;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.28);
+    background: linear-gradient(180deg, rgba(157, 115, 51, 0.00) 0%, rgba(157, 115, 51, 0.57) 100%);
+}
+
+.footer-navbar-brand {
+    display: flex;
+    padding: 15px 0px;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.footer-navbar-brand-text {
+    color: #000;
+    font-family: La Gagliane;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 10px;
+}
+
+.footer-small-col {
+    display: flex;
+    max-width: 600px;
+    padding-top: 16px;
+    align-items: flex-start;
+    gap: 32px;
+    flex-shrink: 0;
+}
+
+.footer-small-col-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    flex: 1 0 0;
+}
+
+.footer-small-col-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+}
+
+.footer-small-col-content-text {
+    color: #212121;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.footer-links-item {
+    color: #212121;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.copyright {
+    display: flex;
+    padding: 16px 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    box-shadow: 0px -1px 0px 0px #E4EBF3;
+}
+
+.copyright p {
+    color: #333;
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    flex: 1 0 0;
+}
+
+.carousel-img {
+    display: flex;
+    height: 648px;
+    padding: 64px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    align-self: stretch;
+    background:url(/static/img/calculator.png), lightgray 50% / cover no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.form {
+    background: #fff;
+    border-radius: 18px;
+}
+
+.about-img {
+    display: flex;
+    height: 648px;
+    padding: 64px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    align-self: stretch;
+    background:url(/static/img/about.png), lightgray 50% / cover no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.abt-img {
+    height: 392.9px;
+}
+
+.about-card img {
+    display: flex;
+    width: 270px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 150px;
+}
+
+.metrics {
+    background: #fff;
+    height: 100%;
+}
+
+.abt-form {
+    width: 500px;
+    margin: auto;
+}
+
+.blog-name {
+    color: #E49C48;
+    font-family: La Gagliane;
+    font-size: 6em;
+    margin-right: 43%;
+    line-height: 2;
+}
+
+.blog-text {
+    text-align: left;
+    font-size: 3em;
+}
+
+@media screen and (max-width:768px) {
+    img {
+        width: 100%;
+    }
+
+    .container {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .col-md-3 {
+        width: 100%;
+        float: left;
+        margin: 0;
+    }
+
+    .blog-name {
+        font-size: 3em;
+        line-height: 1;
+    }
+
+    .blog-text {
+        font-size: 1em;
+    }
+
+    .name {
+        font-size: 2em;
+        line-height: 1.3;
+    }
+
+    .text {
+        font-size: 0.85em;
+    }
+
+    .calc {
+        width: 70%;
+    }
+}
