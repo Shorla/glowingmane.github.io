@@ -2,9 +2,11 @@
 
 #### Video Demo:  <https://youtu.be/_UiyQz2gPb0>
 ## Description:
-Welcome to GlowingMane.
+Welcome to GlowingMane.![home hero](https://github.com/Shorla/glowingmane.github.io/assets/77856859/135c4fd5-bc53-44d2-a9e6-e9b055aaed12)
 
-GlowingMane embraces the diversity of hair, acknowledging natural curls, sleek straight locks, colored strands, and all variations. Our project aims to provide a unique approach to hair care for every user.
+
+
+GlowingMane embraces the diversity of hair, acknowledging natural curls, sleek straight locks, colored strands, and all variations. This project aims to provide a unique approach to hair care for every user.
 
 GlowingMane is accessible to all users, free of charge. Commence your journey to vibrant, healthy hair by clicking the 'Calculate My Hair Growth' button, exploring the tool, or learning more about GlowingMane.
 
