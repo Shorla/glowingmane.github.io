@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block hero %}
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="about-img" style="height: 40vh;">
+                    <h1 class="name" style="font-size: 53px; line-height: 2;">Sign Up</h1>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
+{% block main %}
+        <div class="container">
+            <div class="col">
+                    <div class="testimonial-title my-5">
+                        <h1 style="font-size: 2em; white-space: nowrap;">Create an account</h1>
+                    </div>
+                    <form action="/signup" method="post" class="justify-content-center abt-form">
+                    <div class="col-lg-12 col-md-10 my-5  justify-content-center">
+                        <div class="mb-3 mx-5">
+                            <label class="form-label ">First name</label>
+                            <input autocomplete="off" autofocus class="form-control mx-auto" id="firstname" name="firstname" placeholder="First name" type="text">
+                        </div>
+                        <div class="mb-3 mx-5">
+                            <label class="form-label ">Last name</label>
+                            <input class="form-control mx-auto" id="lastname" name="lastname" placeholder="last name" type="text">
+                        </div>
+                        <div class="mb-3 mx-5">
+                            <label class="form-label ">Username</label>
+                            <input class="form-control mx-auto" id="username" name="username" placeholder="Username" type="text">
+                        </div>
+                        <div class="mb-3 mx-5">
+                            <label class="form-label ">Email Address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" Placeholder="xyz@gmail.com" aria-describedby="emailHelp" autocomplete="off" autofocus  id="email" name="email">
+                        </div>
+                        <div class="mb-3 mx-5">
+                            <label class="form-label ">Date of Birth</label>
+                            <input class="form-control mx-auto" id="birthdate" name="birthdate" placeholder="dd/mm/yyyy" type="date">
+                        </div>
+                        <div class="mb-3 mx-5">
+                            <label class="form-label ">Gender</label>
+                            <input class="form-control mx-auto" id="gender" name="gender" placeholder="Gender" type="text">
+                        </div>
+                        <div class="mb-3 mx-5">
+                            <select name="hairstate" class="form-control mx-auto">
+                                <option disabled selected>Hair State</option>
+                                <option value = "Virgin">Virgin/Natural state</option>
+                                <option value = "Relaxed">Relaxed hair</option>
+                                <option value = "Colored">Colored hair</option>
+                                <option value = "Locs">Locs</option>
+                                <option value = "lowcut">Low cut</option>
+                                <option value = "Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 mx-5">
+                            <label class="form-label ">Password</label>
+                            <input class="form-control mx-auto " id="password" name="password" placeholder="Password" type="password">
+                        </div>
+                        <div class="mb-3 mx-5">
+                            <label class="form-label ">Confirm Password</label>
+                            <input class="form-control mx-auto" id="password" name="confirmation" placeholder="Repeat Password" type="password">
+                        </div>
+                    </div>
+                        <button class="btn btn-primary w-100 mx-auto mb-3" type="submit" >Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
+
