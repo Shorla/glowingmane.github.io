@@ -23,7 +23,7 @@ Navigating through the eight pages of the application begins with the homepage, 
 * read blogs about hair care.
 
 If you don't want to register an account,
-You can login with Username - Olushola Password - 1234
+You can login with Username - Olushola Password - 12345
 
 #### Motivation
 Since childhood, I had to cut my hair because my mother wasn't familiar with caring for its unique texture. Fast forward to adulthood, my attempts to grow it out were met with challenges and damaged hair. Three years ago, I decided to start anew with a blend of research and a solid regimen, turning my hair care journey into a success. This personal experience fueled my passion for hair care and a desire to assist others. Recognizing gaps in the industry, particularly in accountability and record-keeping, led to the creation of the GlowingMane app.
