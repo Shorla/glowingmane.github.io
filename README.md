@@ -28,7 +28,7 @@ Navigating through the eight pages of the application begins with the homepage, 
 * compare their current hair growth to the estimated hair growth generated.
 NOTE: The calculator page can only be accessed by registering and logging in to the website.
 If you don't want to register an account,
-You can login with Username - Olushola Password - 12345
+You can login with Username - Olushorla Password - 12345
 
 ### Running the application locally
 This application can be used through:
