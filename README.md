@@ -75,6 +75,10 @@ Note: If you are getting "pip not found" error, use pip3 for the installations.
 * use ```flask run``` to start the application.
 * copy and paste the generated url to your browser!
 
+### Running the application online
+Visit the url: http://shorla.pythonanywhere.com
+You can login with Username - Olushorla Password - 12345
+
 
 ## Motivation
 Since childhood, I had to cut my hair because my mother wasn't familiar with caring for its unique texture. Fast forward to adulthood, my attempts to grow it out were met with challenges and damaged hair. Three years ago, I decided to start anew with a blend of research and a solid regimen, turning my hair care journey into a success. This personal experience fueled my passion for hair care and a desire to assist others. Recognizing gaps in the industry, particularly in accountability and record-keeping, led to the creation of the GlowingMane app.
