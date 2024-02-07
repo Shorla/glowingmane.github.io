@@ -135,38 +135,20 @@
                 <h1>Recent Blog</h1>
                 <p>Join us in discovering the secrets to unlocking your hair's natural glow. No more guesswork, just informed, personalized advice.</p>
             </div>
-            <div class="row my-5 justify-content-center mx-5">
-                <div class=" col-md-3 col-lg-3 col-xl-3 my-2">
+            {% for post in posts %}
+            <div class="row my-5 mx-5 justify-content-center">
+                <div class="col-md-4 col-lg-4 col-xl-4  my-2">
                     <div class="card">
                         <img src="https://images.ctfassets.net/1ny4yoiyrqia/1g0HWovEiJCScXhtTmeDyF/20a4a50ea7435aaef3368d74f462b7e2/african-hair.jpg" class="card-img-top" style="height:190px;" alt="...">
                         <div class="card-body">
-                            <h5>Healthy hair? Where should I start from?</h5>
-                            <p>This is our very first hair blog. It introduces you to Glowing Mane and helps you get started with a simple routine.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-lg-3 col-xl-3 my-2">
-                    <div class="card">
-                        <img src="https://static-bebeautiful-in.unileverservices.com/1200/900/how%20to%20blow%20dry%20hair_MobileHomeFeature.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5>Blow drying! Heat can be Beneficial!</h5>
-                            <p>I had my first ever blow dry and it was worth it. In this blog, I will discuss the benefits and what to avoid when using heat on your hair.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-lg-3 col-xl-3 my-2 mx-3">
-                    <div class="card">
-                        <img src="https://cdn.aarp.net/content/dam/aarp/entertainment/beauty-and-style/2020/04/1140-hair-products-on-table.jpg" class="card-img-top" style="height:190px;" alt="...">
-                        <div class="card-body">
-                            <h5>Does products grow hair?</h5>
-                            <p>A guide to choosing the right products for your hair care routine. You will learn what to look out for and the myth behind products growing hair.</p>
-                            <a href="#" class="btn btn-primary">Read More</a>
+                            <h5>{{post.title}}</h5>
+                            <p>{{post.subtitle}}</p>
+                            <a href={{"/post/" + post.slug}} class="btn btn-primary">Read More</a>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </section>
 <!--Blog ends-->

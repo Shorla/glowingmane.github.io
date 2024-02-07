@@ -1,22 +1,49 @@
-from cs50 import SQL
-from flask import Flask, flash, redirect, render_template, request, session
+from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, flash, redirect, render_template, request, session, current_app
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 from datetime import datetime
-
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
 from helpers import apology, login_required
 
 
 # Configure application
 app = Flask(__name__)
+with app.app_context():
+    # within this block, current_app points to app.
+    print (current_app.name)
+
+SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
+    username="shorla",
+    password="123qweasZ,",
+    hostname="shorla.mysql.pythonanywhere-services.com",
+    databasename="shorla$calculator",
+)
+app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
+app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
+app.config['SECRET_KEY'] = "dev"
 
-# Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///calculator.db")
+db = SQLAlchemy(app)
+admin = Admin(app)
+
+class Posts(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(255))
+    subtitle = db.Column(db.String(255))
+    content = db.Column(db.Text)
+    author = db.Column(db.String(255))
+    date_posted = db.Column(db.DateTime)
+    slug = db.Column(db.String(255))
+
+admin.add_view(ModelView(Posts, db.session))
 
 def parse_date(date_str):
     return datetime.strptime(date_str, "%Y-%m-%d")
@@ -37,7 +64,8 @@ def after_request(response):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    posts = Posts.query.all()
+    return render_template("index.html", posts=posts)
 
 @app.route("/about")
 def about():
@@ -45,7 +73,14 @@ def about():
 
 @app.route("/blog")
 def blog():
-    return render_template("blog.html")
+    posts = Posts.query.all()
+    return render_template("blog.html", posts=posts)
+
+
+@app.route("/post/<string:slug>")
+def post(slug):
+    post = Posts.query.filter_by(slug=slug).one()
+    return render_template("post.html", post=post)
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
@@ -227,6 +262,7 @@ def calculator():
             )
         except:
             return apology(" missing data")
+            raise
         return render_template("calculator.html", fourthmonth = fourthmonth, average_growth = average_growth)
 
 
@@ -290,3 +326,6 @@ def calculator_main():
             fourthmonth = 0
             average_growth = 0
         return render_template("calculator.html", sum = sum, date = date, length = n_measurement, fourthmonth = fourthmonth, average_growth = average_growth)
+
+if __name__ == '__main__':
+    app.run()
