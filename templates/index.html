@@ -139,7 +139,11 @@
             <div class="row my-5 mx-5 justify-content-center">
                 <div class="col-md-4 col-lg-4 col-xl-4  my-2">
                     <div class="card">
-                        <img src="https://images.ctfassets.net/1ny4yoiyrqia/1g0HWovEiJCScXhtTmeDyF/20a4a50ea7435aaef3368d74f462b7e2/african-hair.jpg" class="card-img-top" style="height:190px;" alt="...">
+                        {% if post.image_filename %}
+                            {% set img_url = url_for('static', filename='uploads/images/' + post.image_filename) %}
+                                <img src="{{ img_url }}" class="card-img-top" style="height: 190px;" alt="...">
+                            {{ img_url }}
+                        {% endif %}
                         <div class="card-body">
                             <h5>{{post.title}}</h5>
                             <p>{{post.subtitle}}</p>

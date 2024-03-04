@@ -5,7 +5,7 @@
         <div class="carousel-inner justify-content-left">
             <div class="carousel-item active ">
                 <div class="about-img" style="height: 40vh;">
-                    <h1 class="name" style="font-size: 53px; line-height: 2;">Login</h1>
+                    <h1 class="name" style="font-size: 53px; line-height: 2;">Post page</h1>
                 </div>
             </div>
         </div>
@@ -15,22 +15,17 @@
         <div class="container">
             <div class="col">
                     <div class="testimonial-title my-5">
-                        <h1 style="font-size: 2em; white-space: nowrap;">{{ post.title }}</h1>
+                        <h1 style=" white-space: nowrap;">{{ post.title }}</h1>
+                        <h3>{{ post.subtitle }}</h3>
+                        <span class="meta">Posted by <a href="#">{{ post.author }}</a> on {{ post.date_posted.strftime('%B %d, %Y') }}</span>
                     </div>
-                    <form action="/post" method="post" class="justify-content-center abt-form">
-                    <div class="col-lg-12 col-md-10 my-5  justify-content-center">
-                        <div class="mb-3 mx-5">
-                            <label class="form-label ">Username</label>
-                            <input class="form-control mx-auto" id="username" name="username" placeholder="Username" type="text">
-                        </div>
-                        <div class="mb-3 mx-5">
-                            <label class="form-label ">Password</label>
-                            <input class="form-control mx-auto " id="password" name="password" placeholder="Password" type="password">
-                        </div>
+
+                    <div class= "col-lg-8 col-md-10 mx-auto">
+                        <p>
+                            {{ post.content | safe }}
+                        </p>
+
                     </div>
-                        <button class="btn btn-primary w-100 mx-auto mb-3" type="submit" >Login</button>
-                    </form>
-                </div>
             </div>
         </div>
 {% endblock %}
