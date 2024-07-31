@@ -1,0 +1,30 @@
+{% extends 'admin/model/edit.html' %}
+
+{% block tail %}
+    {{ super() }}
+    {{ ckeditor.load() }}
+    <fieldset>
+        <legend>{{ _('Image Details') }}</legend>
+        <div class="form-group">
+            <label for="{{ form.image_filename.id }}">{{ _('Current Image') }}</label>
+            <p>{{ post.image_filename }}</p>  <!-- Display the current filename -->
+        </div>
+        <div class="form-group">
+            <label for="{{ form.image_filename.id }}">{{ _('Upload New Image') }}</label>
+            {{ form.image_filename(class="form-control") }}
+        </div>
+    </fieldset>
+    {#
+    If you have set the configuration variables more than CKEDITOR_SERVE_LOCAL and CKEDITOR_PKG_TYPE,
+    or you need to config the CKEditor textarea, use the line below to register the configuration.
+    The name value should be the name of the CKEditor form field.
+    #}
+    <fieldset>
+        <legend>{{ _('Content Details') }}</legend>
+        <div class="form-group">
+            <label for="{{ form.content.id }}">{{ _('Content') }}</label>
+            {{ form.content(class="ckeditor") }}
+        </div>
+        {{ ckeditor.config(name='content') }}
+    </fieldset>
+{% endblock %}

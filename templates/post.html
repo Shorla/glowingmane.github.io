@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block hero %}
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                {% if post.image_filename %}
+                    {% set img_url = url_for('static', filename='uploads/images/' + post.image_filename) %}
+                    <img src="{{ img_url }}" class="card-img-top" style="height: 50vh;" alt="...">
+                {% endif %}
+                <div class="carousel-caption d-md-block">
+                    <h1 class="name" style="line-height: 2;">Posts</h1>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
+
+{% block main %}
+        <div class="container">
+            <div class="col">
+                    <div class="testimonial-title my-5">
+                        <h1 style=" white-space: nowrap;">{{ post.title }}</h1>
+                        <h3>{{ post.subtitle }}</h3>
+                        <span class="meta">Posted by <a href="#">{{ post.author }}</a> on {{ post.date_posted.strftime('%B %d, %Y') }}</span>
+                    </div>
+
+                    <div class= "col-lg-8 col-md-10 mx-auto">
+                        <p>
+                            {{ post.content | safe }}
+                        </p>
+
+                    </div>
+            </div>
+        </div>
+{% endblock %}
+
+

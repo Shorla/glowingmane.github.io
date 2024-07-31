@@ -66,7 +66,8 @@
                         <h1 id="form-h1">Let’s take your data</h1>
                         <p class="form-text-1">Please input your last four(4) months data</p>
                     </div>
-                    <form action="/calculator" method="post" class="form">
+                    <form method="post" action="{{ url_for('calculator_post') }}" class="form">
+                        <input type="hidden" value="{{ request.args.get('next') }}" name="next_page" id="next_page"/>
                         <div class="mb-3 mx-5">
                             <label class="form-label ">First month</label>
                             <input class="form-control mx-auto" id="firstmonth" name="firstmonth" placeholder="dd/mm/yyyy" type="date">
