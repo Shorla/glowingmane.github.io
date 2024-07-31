@@ -2,14 +2,19 @@
 
 {% block hero %}
     <div id="carouselExampleCaptions" class="carousel slide">
-        <div class="carousel-inner justify-content-left">
-            <div class="carousel-item active ">
-                <div class="about-img" style="height: 40vh;">
-                    <h1 class="name" style="font-size: 53px; line-height: 2;">Post page</h1>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                {% if post.image_filename %}
+                    {% set img_url = url_for('static', filename='uploads/images/' + post.image_filename) %}
+                    <img src="{{ img_url }}" class="card-img-top" style="height: 50vh;" alt="...">
+                {% endif %}
+                <div class="carousel-caption d-md-block">
+                    <h1 class="name" style="line-height: 2;">Posts</h1>
                 </div>
             </div>
         </div>
 {% endblock %}
+
 
 {% block main %}
         <div class="container">
@@ -29,3 +34,5 @@
             </div>
         </div>
 {% endblock %}
+
+

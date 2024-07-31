@@ -15,27 +15,31 @@
 
 {% block main %}
     <!--Blog starts-->
-    <section>
+   <section>
         <div class="container my-5">
             <div class="testimonial-title">
                 <h1>Blog Posts</h1>
                 <p>Join us in discovering the secrets to unlocking your hair's natural glow. No more guesswork, just informed, personalized advice.</p>
             </div>
-            {% for post in posts %}
-            <div class="row my-5 mx-5 justify-content-center">
-                <div class="col-md-4 col-lg-4 col-xl-4  my-2">
-                    <div class="card">
-                        <img src="https://images.ctfassets.net/1ny4yoiyrqia/1g0HWovEiJCScXhtTmeDyF/20a4a50ea7435aaef3368d74f462b7e2/african-hair.jpg" class="card-img-top" style="height:190px;" alt="...">
-                        <div class="card-body">
-                            <h5>{{post.title}}</h5>
-                            <p>{{post.subtitle}}</p>
-                            <a href={{"/post/" + post.slug}} class="btn btn-primary">Read More</a>
+            <div class="row my-5 justify-content-center">
+                {% for post in posts %}
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card mb-4">
+                            {% if post.image_filename %}
+                                {% set img_url = url_for('static', filename='uploads/images/' + post.image_filename) %}
+                                <img src="{{ img_url }}" class="card-img-top" style="height: 190px;" alt="...">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ post.title }}</h5>
+                                <p class="card-text">{{ post.subtitle }}</p>
+                                <a href="{{ url_for('post', slug=post.slug) }}" class="btn btn-primary">Read More</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </section>
+
     <!--Blog ends-->
 {% endblock %}

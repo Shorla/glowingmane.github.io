@@ -135,24 +135,23 @@
                 <h1>Recent Blog</h1>
                 <p>Join us in discovering the secrets to unlocking your hair's natural glow. No more guesswork, just informed, personalized advice.</p>
             </div>
-            {% for post in posts %}
-            <div class="row my-5 mx-5 justify-content-center">
-                <div class="col-md-4 col-lg-4 col-xl-4  my-2">
-                    <div class="card">
-                        {% if post.image_filename %}
-                            {% set img_url = url_for('static', filename='uploads/images/' + post.image_filename) %}
+            <div class="row my-5 justify-content-center">
+                {% for post in posts %}
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card mb-4">
+                            {% if post.image_filename %}
+                                {% set img_url = url_for('static', filename='uploads/images/' + post.image_filename) %}
                                 <img src="{{ img_url }}" class="card-img-top" style="height: 190px;" alt="...">
-                            {{ img_url }}
-                        {% endif %}
-                        <div class="card-body">
-                            <h5>{{post.title}}</h5>
-                            <p>{{post.subtitle}}</p>
-                            <a href={{"/post/" + post.slug}} class="btn btn-primary">Read More</a>
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ post.title }}</h5>
+                                <p class="card-text">{{ post.subtitle }}</p>
+                                <a href="{{ url_for('post', slug=post.slug) }}" class="btn btn-primary">Read More</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </section>
 <!--Blog ends-->
