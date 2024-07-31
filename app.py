@@ -9,7 +9,6 @@ from helpers import apology, login_required
 from sqlalchemy import create_engine, ForeignKey
 from sqlalchemy.exc import OperationalError
 from flask_migrate import Migrate
-from flask_caching import Cache
 from flask_ckeditor import CKEditor
 from wtforms import TextAreaField, StringField, DateTimeField
 from wtforms.widgets import TextArea
