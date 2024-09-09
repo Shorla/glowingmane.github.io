@@ -38,7 +38,10 @@ images = UploadSet('images', IMAGES)
 app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
 app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
+app.config['SECRET_KEY'] = 'your_secret_key'
+app.config['CACHE_TYPE'] = 'simple'
+app.config['CACHE_DEFAULT_TIMEOUT'] = 300
+cache = Cache(app)
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
@@ -372,100 +375,89 @@ def logout():
     # Redirect user to login form
     return redirect("/")
 
-@app.route("/calculator", methods=["GET"])
+@app.route('/calculator', methods=['GET'])
+@cache.cached(timeout=60)
 def calculator_get():
-    # get user id
+    # Check if the user is logged in by retrieving user_id from session
     user_id = session.get("user_id")
     if user_id is None:
+        # If not logged in, initialize default values and render the form
         date = 0
         sum = 0
         length = 0
-        return render_template("calculator.html", sum=sum, date=date, length=length)
+        fourthmonth = 0
+        average_growth = 0
+        return render_template("calculator.html", sum=sum, date=date, length=length, fourthmonth=fourthmonth, average_growth=average_growth)
 
-    form_data = request.args.to_dict()
-    form_data = form_data if form_data else {}  # Ensure form_data is a dictionary
+    data1 = db.session.query(average_data).filter_by(user_id=user_id).order_by(average_data.date.desc()).first()
+    if data1:
+        fourthmonth = data1.date
+        average_growth = data1.average
+    else:
+        fourthmonth = 0
+        average_growth = 0
 
-    # Pass form_data to the template
-    return render_template("calculator.html", form_data=form_data)
+    data2 = db.session.query(check_length).filter_by(user_id=user_id).order_by(check_length.date.desc()).first()
+    if data2:
+        length = data2.length
+        sum = data2.sum
+    else:
+        length = 0
+        sum = 0
+    return render_template("calculator.html",sum=sum, length=length,  fourthmonth=fourthmonth, average_growth=average_growth)
 
-@app.route("/calculator", methods=["POST"])
-@login_required
+
+@app.route('/calculator', methods=['POST'])
 def calculator_post():
-    # get user id
     user_id = session.get("user_id")
     if not user_id:
         next_url = url_for('calculator_get', **request.form.to_dict(flat=True))
         flash("Please log in to continue with the calculation.", "warning")
         return redirect(url_for('login', next=next_url))
 
-    # Retrieve and validate form inputs
     firstmonth = request.form.get("firstmonth")
     if not firstmonth:
-        return apology("must provide date", 400)
-    try:
-        f_measurement = float(request.form.get("f-measurement"))
-    except ValueError:
-        return apology("must provide valid measurement", 400)
-
+        return "must provide date", 400
+    f_measurement = float(request.form.get("f-measurement"))
+    if not f_measurement:
+        return "must provide measurement", 400
     secondmonth = request.form.get("secondmonth")
     if not secondmonth:
-        return apology("must provide date", 400)
-    try:
-        s_measurement = float(request.form.get("s-measurement"))
-    except ValueError:
-        return apology("must provide valid measurement", 400)
-
+        return "must provide date", 400
+    s_measurement = float(request.form.get("s-measurement"))
+    if not s_measurement:
+        return "must provide measurement", 400
     thirdmonth = request.form.get("thirdmonth")
     if not thirdmonth:
-        return apology("must provide date", 400)
-    try:
-        t_measurement = float(request.form.get("t-measurement"))
-    except ValueError:
-        return apology("must provide valid measurement", 400)
-
+        return "must provide date", 400
+    t_measurement = float(request.form.get("t-measurement"))
+    if not t_measurement:
+        return "must provide measurement", 400
     fourthmonth = request.form.get("fourthmonth")
     if not fourthmonth:
-        return apology("must provide date", 400)
-    try:
-        fo_measurement = float(request.form.get("fo-measurement"))
-    except ValueError:
-        return apology("must provide valid measurement", 400)
+        return "must provide date", 400
+    fo_measurement = float(request.form.get("fo-measurement"))
+    if not fo_measurement:
+        return "must provide measurement", 400
 
-    # Create a cache key based on the form inputs
-    cache_key = f'calculator_{firstmonth}_{f_measurement}_{secondmonth}_{s_measurement}_{thirdmonth}_{t_measurement}_{fourthmonth}_{fo_measurement}'
+    f1 = s_measurement - f_measurement
+    f2 = t_measurement - s_measurement
+    f3 = fo_measurement - t_measurement
+    sum = f1 + f2 + f3
+    average_growth = round(sum / 3, 2)
 
-    # Try to get the result from the cache
-    average_growth = cache.get(cache_key)
+    firstmonth_date = datetime.strptime(firstmonth, "%Y-%m-%d")
+    secondmonth_date = datetime.strptime(secondmonth, "%Y-%m-%d")
+    thirdmonth_date = datetime.strptime(thirdmonth, "%Y-%m-%d")
+    fourthmonth_date = datetime.strptime(fourthmonth, "%Y-%m-%d")
 
-    if average_growth is None:
-        # Calculate the average growth if not in cache
-        sum_growth = fo_measurement - f_measurement
-        average_growth = round(sum_growth / 3, 2)
-        # Store the result in the cache
-        cache.set(cache_key, average_growth)
-
-    print(f"Average Growth: {average_growth}")
-
-    # Parse the input dates to datetime objects
-    try:
-        firstmonth_date = datetime.strptime(firstmonth, "%Y-%m-%d")
-        secondmonth_date = datetime.strptime(secondmonth, "%Y-%m-%d")
-        thirdmonth_date = datetime.strptime(thirdmonth, "%Y-%m-%d")
-        fourthmonth_date = datetime.strptime(fourthmonth, "%Y-%m-%d")
-    except ValueError:
-        return apology("invalid date format", 400)
-
-    # Create instances of hair_data
+    # Assuming hair_data and average_data are SQLAlchemy models
     firstmonth_hair_data = hair_data(user_id=user_id, date=firstmonth_date, measurement=f_measurement)
     secondmonth_hair_data = hair_data(user_id=user_id, date=secondmonth_date, measurement=s_measurement)
     thirdmonth_hair_data = hair_data(user_id=user_id, date=thirdmonth_date, measurement=t_measurement)
     fourthmonth_hair_data = hair_data(user_id=user_id, date=fourthmonth_date, measurement=fo_measurement)
-
-    # Create an instance of average_data
     info = average_data(user_id=user_id, date=fourthmonth_date, average=average_growth)
 
-
-    # Insert into the database
     try:
         db.session.merge(firstmonth_hair_data)
         db.session.merge(secondmonth_hair_data)
@@ -476,9 +468,10 @@ def calculator_post():
     except Exception as e:
         db.session.rollback()
         print(f"Error: {e}")
-        return apology("Internal Server Error", 500)
+        return "Internal Server Error", 500
 
     return render_template("calculator.html", fourthmonth=fourthmonth, average_growth=average_growth)
+
 
 
 @app.route("/calculator_main", methods=["GET", "POST"])

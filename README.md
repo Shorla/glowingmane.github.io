@@ -8,16 +8,15 @@ Welcome to GlowingMane.
 
 
 
-GlowingMane embraces the diversity of hair, acknowledging natural curls, sleek straight locks, colored strands, and all variations. This project aims to provide a unique approach to hair care for every user.
+GlowingMane embraces the diversity of hair, acknowledging natural curls, sleek straight locks, coloured strands, and all variations. This project aims to provide a unique approach to hair care for every user.
 
 GlowingMane is accessible to all users, free of charge. Commence your journey to vibrant, healthy hair by clicking the 'Calculate My Hair Growth' button, exploring the tool, or learning more about GlowingMane.
 
 ## PROJECT STRUCTURE:
-The Glowing Mane app is crafted using HTML, CSS, Javascript, and Bootstrap for the frontend; Python and Flask for the backend; and Sqlite3 for the database. The project folder structure encompasses various elements, including static folders for images and CSS, a templates folder housing the HTML files, and Python files such as app.py and helpers.py. The heart of it all lies in the calculator.html file, our calculator, taking in user's input and returning estimated hair length or average monthly growth depending on their request.
-NOTE: The calculator.db contains sample data for testing purposes.
+The Glowing Mane app is crafted using HTML, CSS, Javascript, and Bootstrap for the frontend; Python and Flask for the backend; and MySQL and SQL-alchemy for the database. The project folder structure encompasses various elements, including static folders for images and CSS, a templates folder housing the HTML files, a test folder for tests and Python files such as app.py and helpers.py. The heart of it all lies in the calculator.html file, our calculator, taking in users' input and returning estimated hair length or average monthly growth depending on their request. 
 
 ## HOW TO USE THE APPLICATION
-Navigating through the eight pages of the application begins with the homepage, offering basic information about Glowing Mane. The About page delves deeper into our team, mission, and available support. Our blog page features a wealth of articles on hair care. The signup page allows users to register, leading to the login page, granting access to both the calculator and logout page. The calculator, the centerpiece of our website, consists of two forms. The first calculates the average monthly hair growth based on the last four months' input, while the second compares the latest input to the expected length, providing personalized commendations.
+Navigating through the over eight pages of the application begins with the homepage, offering basic information about Glowing Mane. The About page delves deeper into our team, mission, and available support. Our blog page features a wealth of articles on hair care. The signup page allows users to register, leading to the login page, granting access to both the calculator and logout page. The calculator, the centrepiece of our website, consists of two forms. The first calculates the average monthly hair growth based on the last four months' input, while the second compares the latest input to the expected length, providing personalized commendations. The admin page is restricted only to admins and is responsible for assigning roles to users and updating, deleting and creating blog posts.
 
 ## Features
 #### Users can:
@@ -26,9 +25,10 @@ Navigating through the eight pages of the application begins with the homepage, 
 * Sign in/Sign up on the app
 * calculate their average monthly hair growth
 * compare their current hair growth to the estimated hair growth generated.
-NOTE: The calculator page can only be accessed by registering and logging in to the website.
+NOTE: The calculator page can only generate results by registering and logging in to the website.
 If you don't want to register an account,
-You can login with Username - Olushorla Password - 12345
+You can login with Username - shorla Password - 12345
+
 
 ### Running the application locally
 This application can be used through:
@@ -44,9 +44,7 @@ STEPS:
 * After the codespace is opened, on the terminal, install the following:
 
 ```
-pip install flask
-pip install flask-session
-pip install cs50
+python -m pip install -r requirements.txt
 
 ```
 Note: If you are getting "pip not found" error, use pip3 for the installations.
@@ -65,9 +63,8 @@ STEPS:
 * After, the folder is opened, on the terminal in your IDE, install the following:
 
 ```
-pip install flask
-pip install flask-session
-pip install cs50
+python -m pip install -r requirements.txt
+
 
 ```
 Note: If you are getting "pip not found" error, use pip3 for the installations.
@@ -77,7 +74,7 @@ Note: If you are getting "pip not found" error, use pip3 for the installations.
 
 ### Running the application online
 Visit the url: http://shorla.pythonanywhere.com
-You can login with Username - Olushorla Password - 12345
+You can login with Username - shorla Password - 12345
 
 
 ## Motivation
