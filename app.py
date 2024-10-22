@@ -18,6 +18,7 @@ from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from werkzeug.utils import secure_filename
 import os
+import memcache
 from flask_uploads import UploadSet, configure_uploads, IMAGES
 
 # Configure application
@@ -40,9 +41,10 @@ app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
 app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config['SECRET_KEY'] = 'your_secret_key'
-app.config['CACHE_TYPE'] = 'simple'
-app.config['CACHE_DEFAULT_TIMEOUT'] = 300
-cache = Cache(app)
+
+
+
+
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
@@ -56,9 +58,12 @@ os.makedirs(upload_dir, exist_ok=True)
 configure_uploads(app, images)
 
 
+
 db = SQLAlchemy(app)
+# Initialize Cache and SQLAlchemy
 migrate = Migrate(app, db)
 ckeditor = CKEditor(app)
+cache = Cache(app, config={'CACHE_TYPE': 'memcached', 'CACHE_MEMCACHED_SERVERS': ['127.0.0.1:11211']})
 
 class CKTextAreaWidget(TextArea):
     def __call__(self, field, **kwargs):
@@ -181,11 +186,12 @@ def subtract_dates(date1, date2):
 
 @app.after_request
 def after_request(response):
-    """Ensure responses aren't cached"""
-    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
-    response.headers["Expires"] = 0
-    response.headers["Pragma"] = "no-cache"
+    if "Cache-Control" not in response.headers:
+        response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+        response.headers["Expires"] = 0
+        response.headers["Pragma"] = "no-cache"
     return response
+
 
 @app.route("/")
 def index():
@@ -379,16 +385,19 @@ def logout():
 @app.route('/calculator', methods=['GET'])
 @cache.cached(timeout=60)
 def calculator_get():
-    # Check if the user is logged in by retrieving user_id from session
     user_id = session.get("user_id")
+
     if user_id is None:
-        # If not logged in, initialize default values and render the form
-        date = 0
-        sum = 0
-        length = 0
-        fourthmonth = 0
-        average_growth = 0
-        return render_template("calculator.html", sum=sum, date=date, length=length, fourthmonth=fourthmonth, average_growth=average_growth)
+        # User not logged in, initialize default values
+        return render_template("calculator.html", sum=0, date=0, length=0, fourthmonth=0, average_growth=0)
+
+    # If user is logged in, fetch data from the cache if available
+    cached_data = cache.get(f'user_input_{user_id}')
+    if cached_data:
+        # Populate the form with cached data
+        sum, length, fourthmonth, average_growth = cached_data
+        return render_template("calculator.html", sum=sum, length=length, fourthmonth=fourthmonth, average_growth=average_growth)
+
 
     data1 = db.session.query(average_data).filter_by(user_id=user_id).order_by(average_data.date.desc()).first()
     if data1:
@@ -414,6 +423,17 @@ def calculator_post():
     if not user_id:
         next_url = url_for('calculator_get', **request.form.to_dict(flat=True))
         flash("Please log in to continue with the calculation.", "warning")
+        cache.set(f'user_input_temp_{next_url}', (
+            request.form.get("firstmonth"),
+            request.form.get("f-measurement"),
+            request.form.get("secondmonth"),
+            request.form.get("s-measurement"),
+            request.form.get("thirdmonth"),
+            request.form.get("t-measurement"),
+            request.form.get("fourthmonth"),
+            request.form.get("fo-measurement")
+        ))
+
         return redirect(url_for('login', next=next_url))
 
     firstmonth = request.form.get("firstmonth")
@@ -470,6 +490,9 @@ def calculator_post():
         db.session.rollback()
         print(f"Error: {e}")
         return "Internal Server Error", 500
+
+    # Cache the user input after successful calculation
+    cache.set(f'user_input_{user_id}', (sum, length, fourthmonth, average_growth))
 
     return render_template("calculator.html", fourthmonth=fourthmonth, average_growth=average_growth)
 
