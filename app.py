@@ -79,11 +79,21 @@ class CKTextAreaField(TextAreaField):
 class SecureModelView(ModelView):
     def is_accessible(self):
         user_id = session.get("user_id")
+        print(f"User ID from session: {user_id}")  # Debug
+        if not user_id:
+            abort(403)  # No user logged in
+
         user = User.query.filter_by(id=user_id).first()
-        if user and user.is_admin:
+        print(f"User from database: {user}")  # Debug
+        if user is None:
+            abort(403)  # User not found
+
+        print(f"User is_admin value: {user.is_admin}")  # Debug
+        if user.is_admin == 1:  # or just if user.is_admin: for boolean
             return True
         else:
-            abort(403)
+            abort(403)  # Not an admin
+
 
 class Posts(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -492,7 +502,7 @@ def calculator_post():
         return "Internal Server Error", 500
 
     # Cache the user input after successful calculation
-    cache.set(f'user_input_{user_id}', (sum, length, fourthmonth, average_growth))
+    cache.set(f'user_input_{user_id}', (sum, fo_measurement, fourthmonth, average_growth))
 
     return render_template("calculator.html", fourthmonth=fourthmonth, average_growth=average_growth)
 
