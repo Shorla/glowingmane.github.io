@@ -1,5 +1,5 @@
 import pytest
-from app import app, db, cache
+from app import app, db
 from app import Users
 from werkzeug.security import generate_password_hash
 
@@ -30,12 +30,10 @@ def test_blog(client):
     assert b"Blog" in response.data
 
 def test_login(client):
-    """Test the login route."""
     response = client.get('/login')
     assert response.status_code == 200
     assert b"Login" in response.data
 
-    # Add a test user to the database
     with app.app_context():
         user = Users(username="testuser", hash=generate_password_hash("testpassword"), firstname="test", lastname="user")
         db.session.add(user)
@@ -74,14 +72,14 @@ def test_cache_replication(client):
     }
 
     response = client.post('/calculator', data=form_data)
-    assert response.status_code == 302  # Redirect to login page
+    assert response.status_code == 302
 
     test_user = Users(username='testuser', hash=generate_password_hash('password123'), firstname="test", lastname="user")
     db.session.add(test_user)
     db.session.commit()
 
     with client.session_transaction() as sess:
-        sess['user_id'] = test_user.user_id  # Simulate user login
+        sess['user_id'] = test_user.user_id
 
     response = client.get('/calculator')
 

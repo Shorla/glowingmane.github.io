@@ -44,16 +44,11 @@ app.config['SECRET_KEY'] = 'your_secret_key'
 
 
 
-
-
-# Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
-app.config['SECRET_KEY'] = "dev"
 app.config['UPLOADED_IMAGES_DEST'] = 'static/uploads/images'
 upload_dir = os.path.join(app.root_path, app.config['UPLOADED_IMAGES_DEST'])
-print(f"Attempting to create directory: {upload_dir}")
 os.makedirs(upload_dir, exist_ok=True)
 configure_uploads(app, images)
 
@@ -79,21 +74,27 @@ class CKTextAreaField(TextAreaField):
 class SecureModelView(ModelView):
     def is_accessible(self):
         user_id = session.get("user_id")
-        print(f"User ID from session: {user_id}")  # Debug
+        print(f"User ID from session: {user_id}")
+
         if not user_id:
-            abort(403)  # No user logged in
+            print("No user_id in session; aborting")
+            abort(403)
 
-        user = User.query.filter_by(id=user_id).first()
-        print(f"User from database: {user}")  # Debug
+        user = User.query.filter_by(user_id=user_id).first()
+        print(f"User from database: {user}")
+
         if user is None:
-            abort(403)  # User not found
+            print("User not found in database; aborting")
+            abort(403)
 
-        print(f"User is_admin value: {user.is_admin}")  # Debug
-        if user.is_admin == 1:  # or just if user.is_admin: for boolean
+        print(f"User is_admin value: {user.is_admin}")
+
+        if user.is_admin:
+            print("User is admin; access granted")
             return True
         else:
-            abort(403)  # Not an admin
-
+            print("User is not admin; access denied")
+            abort(403)
 
 class Posts(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -129,7 +130,6 @@ class PostModel(SecureModelView):
     edit_template = 'edit.html'
 
     def on_model_change(self, form, model, is_created):
-        # Save the image file using Flask-Uploads
         if 'image_filename' in request.files:
             image_file = request.files['image_filename']
             if image_file.filename:
@@ -230,11 +230,8 @@ def upload():
     if form.validate_on_submit():
         filename = secure_filename(form.image_filename.data.filename)
 
-        # Save the uploaded file and get the correct filename
         filename = save_uploaded_file(form.image_filename, filename)
 
-        # Assuming you have a post instance, update the image filename
-        # Replace `post` with the actual instance of your Post model
         post.image_filename = filename
 
         # Commit changes to the database
