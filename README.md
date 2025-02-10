@@ -83,3 +83,5 @@ Since childhood, I had to cut my hair because my mother wasn't familiar with car
 ## Contributing
 
 This is an Open source project, hence, contributions are appreciated. This is only the first version, so, several improvements and adjustments will take place over the years. The goal is to make everyone have access to good hair care through accurate measurements, record keeping, and a good regimen.
+
+## Thank You!
